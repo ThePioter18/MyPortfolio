@@ -1,0 +1,866 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans' !important;
+    background: rgb(27, 26, 26) !important;
+    color: #fff !important;
+    letter-spacing: 1px;
+}
+
+.whitespace{
+    width: 100%;
+    height: 100px;
+
+}
+
+/*=============================
+     typewriter effect starts
+===============================*/
+.line{
+    width: 24em;
+    top: 50%;
+    margin: auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+.anim-typewriter{
+    animation: typewriter 4s steps(40) 1s 1 normal both,
+    blinkTextCursor 500ms steps(40) infinite normal;
+}
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to{
+        width: 18em;
+    }
+}
+
+/*--- Urządzenia mobilne rozdz < 768px ---*/
+@media(max-width: 768px){
+    @keyframes typewriter {
+        from {
+            width: 0;
+        }
+        to{
+            width: 17em;
+        }
+    }
+}
+@keyframes blinkTextCursor{
+    from{
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to{
+        border-right-color: transparent; /*przezroczysty*/
+    }
+}
+/*=============================
+     typewriter effect ends
+===============================*/
+
+/*=============================
+     navigation starts
+===============================*/
+nav { 
+    width: 100%;
+    background-color: #0b0b0b;
+    height: 80px;
+    position: fixed;
+    z-index: 1;  
+
+}
+nav #brand {
+    float: left;
+    display: block;
+    margin-left: 82px;
+    line-height: 82px;
+    font-weight: bold;
+}
+
+nav #brand a {
+    color: #fff;
+    transition: all 0.3s ease-out;
+}
+
+nav #brand a:hover{
+    text-decoration: none;
+}
+
+nav #menu {
+    float: left;
+    right: 80px;
+    position: fixed;
+}
+
+nav #menu li {
+    padding-left: 40px;
+    display: inline-block; /*obok siebie menu li*/
+    font-weight: 300;
+    line-height: 80px; /*odstęp od góry menu li*/
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+nav #menu li span {
+    font-weight: 700;
+}
+
+nav #menu li a {
+    color: #fff;
+}
+
+nav #menu li a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#toggle {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-weight: 300;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    float: right;
+    transition: all 0.3s ease-out;
+    visibility: hidden; 
+    opacity: 0; /*ukrycie menu dla desktopu*/
+}
+
+.close-btn {
+    position: absolute;
+    right: 16px;
+    font-weight: 300;
+    z-index: 2;
+    cursor: pointer;
+    top: -2px;
+    line-height: 80px;
+}
+
+#resize {
+    z-index: 1;
+    top: 0px;
+    position: fixed;
+    background: #0f0f0f;
+    width: 100%;
+    height: 100%;
+    visibility: hidden; /*ukrycie menu*/
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+#resize #menu {
+    height: 90px;
+    position: absolute;
+    left: 45%;
+    transform: translateX(-40%);
+    text-align: center;
+    display: table-cell;
+    vertical-align: center;
+}
+
+#resize #menu li {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 50px;
+    min-height: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+#resize li:nth-child(1) {
+    margin-top: 140px;
+}
+
+#resize #menu li a {
+    color: #fff;
+}
+
+#resize #menu li a:hover {
+    text-emphasis: none;
+}
+
+#resize.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media(max-width: 768px){
+    #toggle {
+        visibility: visible; /*pokazanie przycisku menu*/
+        opacity: 1;
+        /*pokazanie przycisku menu end*/
+        margin-top: 6px;
+        margin-right: 4px;
+    }
+    nav #brand {
+        margin-left: 24px;
+    }
+    #menu a{
+        font-size: 20px;
+        font-weight: 300;
+    }
+    #resize li span{
+        font-weight: bolder;
+    }
+    nav #menu {
+        display: none;
+    }
+}
+@media(min-width: 768px) {
+    #resize {
+        visibility: hidden !important;
+    }
+}
+/*=============================
+     navigation ends
+===============================*/
+
+/*=================
+     hero section 
+==================*/
+.hero{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1))
+    border-box, url(/img/background.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero h1{
+    text-align: center;
+    letter-spacing: -2px;
+    line-height: 58px; /*podniesienie wyzej napisu*/
+}
+
+/*====================
+     hero section ends
+=======================*/
+
+/*==============================
+     scroll down icon animation 
+================================*/     
+.scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    z-index: 0;
+    text-decoration: none;
+    text-shadow: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    -webkit-transform: translate(-50%, 0) rotate(45deg);
+    animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+@keyframes fade_move_down {
+    0% {
+        transform: translate(0, -20px) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 20px) rotate(45deg);
+        opacity: 0;
+    }
+}
+/*===================================
+     scroll down icon animation ends
+=====================================*/ 
+
+/*======= projects section =========*/
+#work h6{
+    text-align: center;
+    margin-top: 2%;
+}
+.vertical{
+    margin-top: 40px;
+    border-left: 2px dotted #000;
+    height: 80px;
+    position: absolute;
+    left: 50%; /*wysrodkowanie pionowej kreski*/
+}
+/*-tags for project-*/
+.top-tags {
+    bottom: auto;
+    top: 0;
+}
+.tags {
+    color: #515152;
+    position: absolute;
+    bottom: 0;
+    left: 80px;
+    font-size: 18px;
+    font-family: 'La Belle Aurore',cursive;
+}
+/*-tags end-*/
+
+.project{
+    height: 500px;
+}
+.project a:hover{
+    text-decoration: none;
+}
+.project1{
+    background: url(../img/travel_agency.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.project1:after {
+    content: "Website-TravelAgency.";
+    font-family: 'Open Sans' !important;
+
+    font-size: 36px;
+    position: relative;
+    color: #fff;
+    display: block;
+    top: 20%;
+    left: -60%;
+    right: 0;
+    bottom: 0;
+}
+.project2{
+    background: url(../img/myphotography.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+.project2:after {
+    content: "Website-MyPhotography.";
+    font-family: 'Open Sans' !important;
+
+    font-size: 36px;
+    position: relative;
+    color: #fff;
+    display: block;
+    top: 80%;
+    left: 60%;
+    right: 0;
+    bottom: 0; 
+}
+.project3{
+    background: url(../img/guitar_shop.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    /* height: 100%;
+    width: 100%; */
+}
+
+.project3:after {
+    content: "Website GuitarShop.";
+    font-family: 'Open Sans' !important;
+
+    font-size: 36px;
+    position: relative;
+    color: #fff;
+    display: block;
+    top: 80%;
+    left: -50%;
+    right: 0;
+    bottom: 0;
+}
+
+.project4{
+    background: url(../img/Rape_detale_1.jpg) no-repeat 50% 50%;
+    background-size: cover;
+
+    position: relative;
+    overflow: hidden;
+}
+.project4:after {
+    content: "rape scene.";
+    font-family: 'Open Sans' !important;
+
+    font-size: 36px;
+    position: relative;
+    color: #fff;
+    display: block;
+    top: 80%;
+    left: 60%;
+    right: 0;
+    bottom: 0;
+}
+
+.project4:hover .project3:hover, .project2:hover, .project:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+/*coming soon starts*/
+.title-project4 {
+    position: absolute;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(255, 225, 53, 0.89);
+    text-align: center;
+    transition: .5s;
+    color: #49411a;
+}
+.title-project4 h3 {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-weight: 600;
+}
+#image-proj4, #image-proj4:hover .title-project4{
+    /*przesuniecie elementu*/
+    top: 0%;
+}
+/*coming soon ends*/
+
+/*page decorations*/
+.big-puzzle {
+    font-size: 25rem;
+    opacity: 0.03;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    transform: rotate(45deg);
+}
+.small-puzzle {
+    /*style puzzlle*/
+    font-size: 16rem;
+    opacity: 0.03;
+    position: absolute;
+    left: 80px;
+    transform: rotate(140deg); 
+}
+
+/*=============================== 
+=====   projects section ends
+================================*/
+
+/*====== footer section starts ======*/
+.collab{
+    text-align: right;
+
+}
+.collab p{
+    margin-bottom: 60px;
+}
+.hr {
+    border-top: 2px dotted rgba(255, 255, 255, 0.2);
+}
+/*text*/
+.question {
+    color: grey;
+    letter-spacing: 3px;
+}
+.info h4 {
+    font-size: 18px;
+}
+.info p {
+    color: grey;
+}
+
+#fb::before {
+    display: inline-block;
+    content: '';
+    border-radius: 100%;
+    height: 4px;
+    width: 4px;
+    margin-right: 6px;
+    background: #fff;
+
+}
+.fa-facebook{
+    color: #59595a;
+    font-size: 22px;
+    cursor: pointer;
+}
+.fa-facebook:hover{
+    text-decoration: none;
+
+}
+#github::before {
+    display: inline-block;
+    content: '';
+    border-radius: 100%;
+    height: 4px;
+    width: 4px;
+    margin-right: 6px;
+    background: #fff;
+}
+.fa-github{
+    color: #59595a;
+    font-size: 22px;
+    cursor: pointer;
+}
+#bh::before {
+    display: inline-block;
+    content: '';
+    border-radius: 100%;
+    height: 4px;
+    width: 4px;
+    margin-right: 6px;
+    background: #fff;
+}
+.fa-behance{
+    color: #59595a;
+    font-size: 22px;
+    cursor: pointer;
+}
+#yt::before {
+    display: inline-block;
+    content: '';
+    border-radius: 100%;
+    height: 4px;
+    width: 4px;
+    margin-right: 6px;
+    background: #fff;
+}
+.fa-youtube{
+    color: #59595a;
+    font-size: 22px;
+    cursor: pointer;
+}
+.fa-user-cog{
+    color: #59595a;
+    font-size: 20px;
+    cursor: pointer;
+}
+#media {
+    text-align: right;
+} 
+#address {
+    text-align: left;
+}
+#media ul {
+    list-style: none;
+}
+#media ul a {
+    text-decoration: none;
+}
+#media ul li {
+    display: inline-block;
+}
+/*======= footer section ends =========*/
+
+/*======== work page ========*/
+
+.hero-content{
+    margin-left: 0%;
+}
+
+.hero-content p{
+    font-weight: 300;
+    line-height: 36px;
+    color: grey;
+}
+.hero-content h6 {
+    text-align: left;
+}
+
+/*======== work page ends ========*/
+
+/*======== about page starts ========*/
+
+.about { /*miejsce na zdjęcie*/
+    height: 500px;
+    margin-top: 120px;
+}
+.image {
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1))
+    border-box, url(../img/travel_agency.jpg) no-repeat 50% 70%;
+    background-size: cover;
+    box-shadow: 0 2px 10px rgba(250,250,250,0.2);
+    
+    position: relative;
+    overflow: hidden;
+}
+/*hovering over a picture.*/
+.title-project {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(218,	229, 189, 0.9); 
+    transition: .5s;
+    text-align: center;
+    /* display: none; */
+    color: #212529;
+
+}
+.image-proj2{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1))
+    border-box, url(../img/myphotography.jpg) no-repeat 50% 70%;
+    background-size: cover;
+    box-shadow: 0 2px 10px rgba(250,250,250,0.2);
+    
+    position: relative;
+    overflow: hidden;
+}
+.title-project2 {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(148, 25, 25, 0.7); 
+    transition: .5s;
+    color: #fff;
+    text-align: center;
+}
+.image-proj3{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1))
+    border-box, url(../img/guitar_shop.jpg) no-repeat 50% 70%;
+    background-size: cover;
+    box-shadow: 0 2px 10px rgba(250,250,250,0.2);
+    
+    position: relative;
+    overflow: hidden;
+}
+.title-project3 {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 178, 35, 0.87);
+    text-align: center;
+    transition: .5s;
+    color: #49411a;
+}
+.title-project h3, .title-project2 h3, .title-project3 h3 {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-weight: 600;
+}
+
+.image:hover .title-project, .image:hover .title-project2,
+.image-proj2, .image-proj2:hover .title-project2,
+.image-proj3, .image-proj3:hover .title-project3
+ {
+    left: 0%;
+}
+
+.image-about {
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1))
+    border-box, url(../img/background.jpg) no-repeat 50% 70%;
+    background-size: cover;
+    box-shadow: 0 2px 10px rgba(250,250,250,0.2);
+}
+/*======== about page ends ========*/
+
+/*======================
+    contact form starts
+========================*/
+#contact-form{
+    margin: 3% 1.4%;
+}
+#contact-form ul {
+    list-style: none;
+    margin-right: 80px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+#contact-form li {
+    padding: 10px;
+}
+#contact-form li:last-of-type {
+    border-bottom: none;
+}
+#contact-form label {
+    display: block;
+    font-size: 0.9em;
+    padding: 5px;
+    color: #eee;
+    padding-left: 5px;
+    border-left: 6px solid rgba(24, 68, 68, 0.911);
+    background-color: rgba(25, 180, 180, 0.801);
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    resize: vertical;
+    background: transparent;
+    color: #fff;
+    font-weight: bolder;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+
+textarea:focus {
+    outline: none;
+    border: none;
+}
+
+.textarea {
+    border-bottom: 1px solid rgba(24, 68, 68, 0.911);
+    background-color: #2b2b2b;
+}
+
+.send {
+    margin-left: 50px;
+    text-transform: uppercase;
+    padding: 20px 20px;
+    background: transparent;
+    color: #dfdfdf;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: 1px solid #dfdfdf;
+}
+
+.send:hover{
+    background: #242424;
+    color: #ffffff;
+}
+.send:active{
+    outline: none;
+    background-color: transparent;
+
+}
+/*======================
+    contact form ends
+========================*/
+
+/*========= project page starts=======*/
+.prev, .next p{
+    color: grey;
+}
+
+.prev p {
+    text-align: left;
+}
+
+.next p {
+    text-align: right;
+}
+/*========= project page ends=======*/
+
+/*==================*/
+/*===   @MEDIA  ===*/
+
+/*--- Urządzenia mobilne rozdz < 768px ---*/
+@media(max-width: 768px){
+    .whitespace{
+        display: none;
+    }
+    #contact-form {
+        margin: 5% -8%;
+        width: 98%;
+    }
+
+    /*==== footer section media ====*/
+    .collab, #personal, #media, #address {
+        text-align: center;
+    }
+    .info ul {
+        margin: 0 0 0 -10px;
+        padding: 0;
+    }
+    .contact-text{
+        margin-top: 10%;
+    }
+
+
+    /*==== Hero sections media 768px =====*/
+    .header h1 {
+        font-size: 26px;
+    }
+
+
+    /*== Work page media ==*/
+    .hero-content {
+        padding-top: 50px;
+        width: 96%;
+        margin: 0 auto;
+    }
+
+}
+
+/*==== Hero sections media 440px =====*/
+@media(max-width: 440px){
+    .header h1 {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+}
+
+/*==== Projects sections media =====*/
+@media(max-width: 996px){
+    .project1:after, .project2:after, .project3:after, .project4:after {
+        left: 0;
+
+    }
+    /*remove puzzle*/
+    .big-puzzle::before {
+        display: none;
+    }
+}
+@media(max-width: 860px){
+    .small-puzzle{
+        left: 0px;
+    }
+}
+@media(max-width: 768px){
+    .project {
+        width: 90% !important;
+        margin: 14px auto;
+    }
+    .vertical {
+        display: none;
+    }
+    .project1::after, .project2::after, .project3::after, .project4::after{
+        display: none;
+    }
+
+    /*style puzzle*/
+    .small-puzzle{
+        left: 60px;
+    }
+    .small-puzzle:before{
+        font-size: 8rem;
+    }
+}
+@media(max-width: 580px){
+    /*style tags*/
+    .tags{
+        top: -85px;
+        left: 0px;
+        margin-top: 7%;
+    }
+}
+@media(max-width: 440px){
+    .small-puzzle:before{
+        font-size: 8rem;
+    }
+    /*style tags*/
+    .tags{
+        top: -75px;
+        left: 0px;
+        margin-top: 7%;
+    }
+}
